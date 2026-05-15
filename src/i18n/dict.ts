@@ -1,0 +1,88 @@
+export type Lang = "sl" | "en";
+
+export const dict = {
+  sl: {
+    nav: { events: "Dogodki", projects: "Projekti", merch: "Merch", about: "O nas", contact: "Kontakt", cta: "Pozdrav" },
+    hero: {
+      kicker: "Est. 2024 · Slovenija",
+      lineA: "Kolektiv",
+      lineB: "ki dela",
+      lineC: "hrup, projekte & noči.",
+      body: "Organiziramo dogodke, gradimo projekte, občasno tudi kaj natisnemo. Večinoma med prijatelji. Včasih glasneje.",
+      ctaEvents: "Glej dogodke →",
+      ctaAbout: "Kdo smo",
+      poster: "TECHNO VOLLEY '26 · 22. AVG",
+      ticker: ["TECHNO VOLLEY · 22. AVG", "YUGO TRIP '26", "BOOKINGI ODPRTI", "PLANET CIRCLE × KAŠ", "UNO DOS DANCE · ARHIV"],
+    },
+    events: { tag: "// 01", title: "Dogodki", count: "prihajajoč", past: "Prejšnji dogodki" },
+    projects: { tag: "// 02", title: "Projekti", subtitle: "Stvari, ki jih delamo med dogodki.", past: "Prejšnji dogodki" },
+    merch: {
+      tag: "// 03",
+      title: "Merch",
+      coming: "Kmalu na voljo.",
+      body: "Oblačila, plakati in ostale reči. Zbiramo ideje in delamo na tem.",
+      notify: "Obvesti me →",
+    },
+    about: {
+      tag: "// 04",
+      title: "O nas",
+      p1: "Planet Circle je kolektiv prijateljev iz Slovenije. Organiziramo Techno Volley, delamo Yugo Trip in ustvarjamo dogodke, ki jim ni para.",
+      p2: "Začeli smo leta 2024. Od takrat smo naredili dve ediciji Techno Volleya, Uno Dos Dance in se pripravljamo na road trip čez Balkan v starih Jugotih.",
+      based: "Slovenija · Odprti za sodelovanja",
+      members: "Člani",
+    },
+    contact: {
+      tag: "// 05",
+      titleA: "Pišite",
+      titleB: "nam.",
+      emailLabel: "Email",
+      igLabel: "Instagram",
+      bookingLabel: "Booking",
+      bookingValue: "Book us →",
+      footer: "Stran v0.2 · Mockup",
+    },
+  },
+  en: {
+    nav: { events: "Events", projects: "Projects", merch: "Merch", about: "About", contact: "Contact", cta: "Say hi" },
+    hero: {
+      kicker: "Est. 2024 · Slovenia",
+      lineA: "A collective",
+      lineB: "making",
+      lineC: "noise, projects & nights.",
+      body: "We put on events, build projects, and occasionally print things. Mostly between friends. Sometimes louder.",
+      ctaEvents: "See events →",
+      ctaAbout: "Who we are",
+      poster: "TECHNO VOLLEY '26 · 22. AVG",
+      ticker: ["TECHNO VOLLEY · AUG 22", "YUGO TRIP '26", "BOOKINGS OPEN", "PLANET CIRCLE × KAŠ", "UNO DOS DANCE · ARCHIVE"],
+    },
+    events: { tag: "// 01", title: "Events", count: "upcoming", past: "Past events" },
+    projects: { tag: "// 02", title: "Projects", subtitle: "Things we do between events.", past: "Past events" },
+    merch: {
+      tag: "// 03",
+      title: "Merch",
+      coming: "Coming soon.",
+      body: "Clothes, prints, and other things. We're working on it.",
+      notify: "Notify me →",
+    },
+    about: {
+      tag: "// 04",
+      title: "About",
+      p1: "Planet Circle is a collective of friends from Slovenia. We run Techno Volley, make Yugo Trip happen, and build events that don't fit a template.",
+      p2: "Started in 2024. Since then: two Techno Volley editions, Uno Dos Dance, and a Balkan road trip in old Yugos in the works.",
+      based: "Slovenia · Open to collabs",
+      members: "Members",
+    },
+    contact: {
+      tag: "// 05",
+      titleA: "Get",
+      titleB: "in touch.",
+      emailLabel: "Email",
+      igLabel: "Instagram",
+      bookingLabel: "Booking",
+      bookingValue: "Book us →",
+      footer: "Site v0.2 · Mockup",
+    },
+  },
+} as const;
+
+export type Dict = (typeof dict)[Lang];
