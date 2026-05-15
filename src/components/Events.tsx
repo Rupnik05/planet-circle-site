@@ -19,11 +19,34 @@ export default function Events() {
           </span>
         </div>
 
-        <div className={upcomingEvents.length === 1 ? "" : "grid grid-cols-1 gap-8 md:grid-cols-2"}>
-          {upcomingEvents.map((e, i) => (
-            <EventCard key={e.id} event={e} index={i} featured={upcomingEvents.length === 1} />
-          ))}
-        </div>
+        {upcomingEvents.length === 1 ? (
+          <div>
+            {upcomingEvents.map((e, i) => (
+              <EventCard key={e.id} event={e} index={i} featured />
+            ))}
+          </div>
+        ) : (
+          <>
+            {/* Mobile: swipeable horizontal scroll-snap */}
+            <div className="-mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-px-6 px-6 pb-4 md:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+              {upcomingEvents.map((e, i) => (
+                <div key={e.id} className="w-[85%] flex-none snap-center">
+                  <EventCard event={e} index={i} />
+                </div>
+              ))}
+            </div>
+            <p className="-mt-2 mb-2 text-center font-mono text-[10px] uppercase text-ink/40 md:hidden">
+              ← drsaj →
+            </p>
+
+            {/* Desktop: grid */}
+            <div className="hidden gap-8 md:grid md:grid-cols-2">
+              {upcomingEvents.map((e, i) => (
+                <EventCard key={e.id} event={e} index={i} />
+              ))}
+            </div>
+          </>
+        )}
 
       </div>
     </section>
