@@ -14,7 +14,7 @@ export const dict = {
       poster: "TECHNO VOLLEY '26 · 22. AVG",
       ticker: ["TECHNO VOLLEY · 22. AVG", "YUGO TRIP '26", "BOOKINGI ODPRTI", "PLANET CIRCLE × KAŠ", "UNO DOS DANCE · ARHIV"],
     },
-    events: { tag: "// 01", title: "Dogodki", count: "prihajajoč", past: "Prejšnji dogodki" },
+    events: { tag: "// 01", title: "Dogodki", count: "prihajajoč" },
     projects: { tag: "// 02", title: "Projekti", subtitle: "Stvari, ki jih delamo med dogodki.", past: "Prejšnji dogodki" },
     merch: {
       tag: "// 03",
@@ -55,7 +55,7 @@ export const dict = {
       poster: "TECHNO VOLLEY '26 · 22. AVG",
       ticker: ["TECHNO VOLLEY · AUG 22", "YUGO TRIP '26", "BOOKINGS OPEN", "PLANET CIRCLE × KAŠ", "UNO DOS DANCE · ARCHIVE"],
     },
-    events: { tag: "// 01", title: "Events", count: "upcoming", past: "Past events" },
+    events: { tag: "// 01", title: "Events", count: "upcoming" },
     projects: { tag: "// 02", title: "Projects", subtitle: "Things we do between events.", past: "Past events" },
     merch: {
       tag: "// 03",
