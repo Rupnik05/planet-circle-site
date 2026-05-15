@@ -27,8 +27,8 @@ export default function Events() {
           </div>
         ) : (
           <>
-            {/* Mobile: swipeable horizontal scroll-snap */}
-            <div className="-mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-px-6 px-6 pb-4 md:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {/* Mobile: swipeable */}
+            <div className="-mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-4 md:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               {upcomingEvents.map((e, i) => (
                 <div key={e.id} className="w-[85%] flex-none snap-center">
                   <EventCard event={e} index={i} />

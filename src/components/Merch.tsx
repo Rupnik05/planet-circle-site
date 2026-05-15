@@ -23,9 +23,9 @@ export default function Merch() {
           </span>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {ITEMS.map(({ label, src, rotate }) => (
-            <div key={label} className="shadow-brut-accent relative aspect-[3/4] overflow-hidden border-2 border-ink/30 bg-paper">
+        {(() => {
+          const renderCard = ({ label, src, rotate }: { label: string; src: string; rotate: string }) => (
+            <div className="shadow-brut-accent relative aspect-[3/4] overflow-hidden border-2 border-ink/30 bg-paper">
               <div className={`absolute inset-0 ${rotate} scale-110`}>
                 <img
                   src={src}
@@ -45,8 +45,31 @@ export default function Merch() {
                 <span className="font-mono text-[10px] uppercase text-accent">COMING SOON</span>
               </div>
             </div>
-          ))}
-        </div>
+          );
+
+          return (
+            <>
+              {/* Mobile: swipeable */}
+              <div className="-mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-4 md:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                {ITEMS.map((item) => (
+                  <div key={item.label} className="w-[75%] flex-none snap-center">
+                    {renderCard(item)}
+                  </div>
+                ))}
+              </div>
+              <p className="-mt-2 mb-2 text-center font-mono text-[10px] uppercase text-paper/50 md:hidden">
+                ← drsaj →
+              </p>
+
+              {/* Desktop: grid */}
+              <div className="hidden gap-6 md:grid md:grid-cols-3">
+                {ITEMS.map((item) => (
+                  <div key={item.label}>{renderCard(item)}</div>
+                ))}
+              </div>
+            </>
+          );
+        })()}
 
         <div className="mt-12 max-w-xl">
           <p className="font-sans text-lg leading-relaxed text-paper/70">{t.merch.body}</p>

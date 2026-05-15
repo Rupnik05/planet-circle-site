@@ -108,14 +108,14 @@ export default function Projects() {
               <span className="h-[2px] w-12 bg-paper" />
               <h3 className="font-display text-2xl uppercase md:text-3xl">{t.projects.past}</h3>
             </div>
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {allPast.map((p, i) => (
+            {(() => {
+              const renderCard = (p: Project, i: number) => (
                 <a
                   key={p.id}
                   href={p.href ?? "#"}
                   target={p.href ? "_blank" : undefined}
                   rel={p.href ? "noopener noreferrer" : undefined}
-                  className={`group block border-2 border-paper bg-ink opacity-80 transition-transform hover:-translate-x-1 hover:-translate-y-1 hover:opacity-100 ${
+                  className={`group block h-full border-2 border-paper bg-ink opacity-80 transition-transform hover:-translate-x-1 hover:-translate-y-1 hover:opacity-100 ${
                     i % 2 === 0 ? "md:-rotate-1" : "md:rotate-1"
                   }`}
                   style={{ boxShadow: "6px 6px 0 0 var(--color-accent)" }}
@@ -142,8 +142,29 @@ export default function Projects() {
                     <p className="mt-3 font-sans text-sm leading-snug text-paper/80">{p.blurb[lang]}</p>
                   </div>
                 </a>
-              ))}
-            </div>
+              );
+
+              return (
+                <>
+                  {/* Mobile: swipeable */}
+                  <div className="-mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-4 md:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                    {allPast.map((p, i) => (
+                      <div key={p.id} className="w-[85%] flex-none snap-center">
+                        {renderCard(p, i)}
+                      </div>
+                    ))}
+                  </div>
+                  <p className="-mt-2 mb-2 text-center font-mono text-[10px] uppercase text-paper/50 md:hidden">
+                    ← drsaj →
+                  </p>
+
+                  {/* Desktop: grid */}
+                  <div className="hidden gap-8 md:grid md:grid-cols-2 lg:grid-cols-3">
+                    {allPast.map((p, i) => renderCard(p, i))}
+                  </div>
+                </>
+              );
+            })()}
           </div>
         )}
       </div>
